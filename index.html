@@ -11,5 +11,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/jasmine.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/jasmine-html.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.3.0/boot.js"></script>
+    <script>
+        // Earth is round 라는 조건을 Jasmine으로 testing해보자
+        
+        const earth = {
+            isRound : true,
+            numberFromSun : 3
+        }
+                                    // 용어 - spec : it is another word for test / Matchers : functions that we attach to the result of the expect function
+        describe("Earth", () => {    // 내가 테스팅함으로서 설명하고싶은 대상
+            it("is round", () => {     // it은 내가 테스팅하고자하는 대상
+                expect(earth.isRound).toBe(true); // toBe 는 Matcher로서 '==='와 같은 역할을 함.
+            });
+            it("is the third planet form the sun", () => {
+                expect(earth.numberFromSun).toBe(3);
+            });
+        });
+
+                                /*
+                                    Matchers
+                                    toBe / not.toBe  === / !==
+                                    toBeCloseTo   == 
+                                    toBeDefined check if the result is not defined or not
+                                    toBeFalsey / toBeTruthy 값이 falsey한지 truthy한지 확인
+                                    toBeGreateThan / toBeLessThan 
+                                    toContain    배열안에 요소가 있는지 없는지 확인
+                                    toEqual   객체(배열, 객체)의 '값'을 비교할때 (각 객체가 다른 메모리 주소를 가지고 있음에도 불구하고 값을 비교할떄 유용함)(객체와 객체를 ===로 비교하면 각자 가지고 있는 메모리 주소가 다르기 때문에 false가 나온다는 사실 염두)
+                                    jasmine.any() type 체킹할때 좋음
+                                */
+    </script>
 </body>
 </html>
