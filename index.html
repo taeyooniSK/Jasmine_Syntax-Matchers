@@ -39,6 +39,31 @@
                                     toEqual   객체(배열, 객체)의 '값'을 비교할때 (각 객체가 다른 메모리 주소를 가지고 있음에도 불구하고 값을 비교할떄 유용함)(객체와 객체를 ===로 비교하면 각자 가지고 있는 메모리 주소가 다르기 때문에 false가 나온다는 사실 염두)
                                     jasmine.any() type 체킹할때 좋음
                                 */
+
+
+        describe("Jasmine Matchers", () => {
+            it("allows for === and deep equality", () => {
+                expect(1 + 1).toBe(2);
+                expect([1,2,3]).toEqual([1,2,3]);   
+            });
+
+            it("allows for easy precision checking", () => {
+                expect(3.1415).toBeCloseTo(3.14, 2);  // 소수점 둘째자리까지 같다라는 걸 표현
+            });
+
+            it("allows for easy truthy", () => {
+                expect(0).toBeFalsy();
+                expect([]).toBeTruthy();
+            });
+            it("allows for checking contents of an object", () => {
+                expect([1,2,3]).toContain(1);
+                expect({name:"Elie"}).toEqual(jasmine.objectContaining({name:"Elie"}));
+            });
+            it("allows for easy type checking", () => {
+                expect([]).toEqual(jasmine.any(Array));
+                expect(() => {}).toEqual(jasmine.any(Function));
+            });
+        });
     </script>
 </body>
 </html>
